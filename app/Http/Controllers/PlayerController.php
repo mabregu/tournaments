@@ -8,9 +8,15 @@ use Illuminate\Http\Request;
 class PlayerController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @OA\Get(
+     *     path="/api/players",
+     *     summary="Get all players",
+     *     tags={"Players"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success"
+     *     )
+     * )
      */
     public function index()
     {
@@ -19,10 +25,18 @@ class PlayerController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @OA\Post(
+     *     path="/api/players",
+     *     summary="Create a new player",
+     *     tags={"Players"},
+     *     @OA\RequestBody(
+     *         required=true
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success"
+     *     )
+     * )
      */
     public function store(Request $request)
     {
@@ -45,10 +59,25 @@ class PlayerController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Player  $id
-     * @return \Illuminate\Http\Response
+     * @OA\Get(
+     *     path="/api/players/{id}",
+     *     summary="Get a player",
+     *     tags={"Players"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID of player to return",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer",
+     *             format="int64"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success"
+     *     )
+     * )
      */
     public function show(Player $id)
     {
@@ -57,11 +86,25 @@ class PlayerController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Player  $player
-     * @return \Illuminate\Http\Response
+     * @OA\Put(
+     *     path="/api/players/{id}",
+     *     summary="Update a player",
+     *     tags={"Players"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID of player to update",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer",
+     *             format="int64"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success"
+     *     )
+     * )
      */
     public function update(Request $request, Player $player)
     {
@@ -83,10 +126,25 @@ class PlayerController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Player  $player
-     * @return \Illuminate\Http\Response
+     * @OA\Delete(
+     *     path="/api/players/{id}",
+     *     summary="Delete a player",
+     *     tags={"Players"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID of player to delete",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer",
+     *             format="int64"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success"
+     *     )
+     * )
      */
     public function destroy(Player $player)
     {

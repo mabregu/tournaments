@@ -8,9 +8,15 @@ use Illuminate\Http\Request;
 class GameController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @OA\Get(
+     *     path="/api/games",
+     *     summary="Get all games",
+     *     tags={"Games"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success"
+     *     )
+     * )
      */
     public function index()
     {
@@ -19,10 +25,18 @@ class GameController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @OA\Post(
+     *     path="/api/games",
+     *     summary="Create a new game",
+     *     tags={"Games"},
+     *     @OA\RequestBody(
+     *         required=true
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success"
+     *     )
+     * )
      */
     public function store(Request $request)
     {
@@ -45,10 +59,25 @@ class GameController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Game  $id
-     * @return \Illuminate\Http\Response
+     * @OA\Get(
+     *     path="/api/games/{id}",
+     *     summary="Get a game",
+     *     tags={"Games"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID of game to return",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer",
+     *             format="int64"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success"
+     *     )
+     * )
      */
     public function show(Game $id)
     {
@@ -57,11 +86,28 @@ class GameController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Game  $game
-     * @return \Illuminate\Http\Response
+     * @OA\Put(
+     *     path="/api/games/{id}",
+     *     summary="Update a game",
+     *     tags={"Games"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID of game to update",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer",
+     *             format="int64"
+     *         )
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success"
+     *     )
+     * )
      */
     public function update(Request $request, Game $game)
     {
@@ -83,10 +129,25 @@ class GameController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Game  $game
-     * @return \Illuminate\Http\Response
+     * @OA\Delete(
+     *     path="/api/games/{id}",
+     *     summary="Delete a game",
+     *     tags={"Games"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID of game to delete",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer",
+     *             format="int64"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success"
+     *     )
+     * )
      */
     public function destroy(Game $game)
     {

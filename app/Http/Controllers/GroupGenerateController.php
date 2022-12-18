@@ -9,7 +9,24 @@ use Termwind\Components\Dd;
 class GroupGenerateController extends Controller
 {
     /**
-     * Generate groups according to number of players
+     * @OA\Post(
+     *     path="/api/actions/groups/generate/{tournament}",
+     *     summary="Generate groups for a tournament",
+     *     tags={"Actions"},
+     *     @OA\Parameter(
+     *         name="tournament",
+     *         in="path",
+     *         description="Tournament ID",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success"
+     *     )
+     * )
      */
     public function store(Tournament $tournament)
     {

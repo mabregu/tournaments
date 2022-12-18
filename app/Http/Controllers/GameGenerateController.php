@@ -8,7 +8,18 @@ use App\Models\Tournament;
 class GameGenerateController extends Controller
 {
     /**
-     * Generate games according to number of players
+     * @OA\Post(
+     *     path="/api/actions/games/generate/{tournament}",
+     *     summary="Generate games for a tournament",
+     *     tags={"Actions"},
+     *     @OA\RequestBody(
+     *         required=true
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success"
+     *     )
+     * )
      */
     public function store(Tournament $tournament)
     {

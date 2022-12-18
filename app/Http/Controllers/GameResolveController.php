@@ -8,9 +8,24 @@ use Illuminate\Http\JsonResponse;
 class GameResolveController extends Controller
 {
     /**
-     * Resolve the games
-     * @param Tournament $tournament
-     * @return JsonResponse
+     * @OA\Post(
+     *     path="/api/actions/games/resolve/{tournament}",
+     *     summary="Resolve a tournament",
+     *     tags={"Actions"},
+     *     @OA\Parameter(
+     *         name="tournament",
+     *         in="path",
+     *         description="Tournament ID",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success"
+     *     )
+     * )
      */
     public function store(Tournament $tournament)
     {

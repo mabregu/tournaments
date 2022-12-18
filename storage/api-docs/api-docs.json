@@ -111,6 +111,73 @@
                 }
             }
         },
+        "/api/actions/games/generate/{tournament}": {
+            "post": {
+                "tags": [
+                    "Actions"
+                ],
+                "summary": "Generate games for a tournament",
+                "operationId": "32dad2137cd4f15a40a3e06e00dbdf84",
+                "requestBody": {
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/actions/games/resolve/{tournament}": {
+            "post": {
+                "tags": [
+                    "Actions"
+                ],
+                "summary": "Resolve a tournament",
+                "operationId": "b4474e61666e0c1e2c332368308dedde",
+                "parameters": [
+                    {
+                        "name": "tournament",
+                        "in": "path",
+                        "description": "Tournament ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/actions/groups/generate/{tournament}": {
+            "post": {
+                "tags": [
+                    "Actions"
+                ],
+                "summary": "Generate groups for a tournament",
+                "operationId": "213ebcb09872bdef01b0a070f59ab5fe",
+                "parameters": [
+                    {
+                        "name": "tournament",
+                        "in": "path",
+                        "description": "Tournament ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
         "/api/players": {
             "get": {
                 "tags": [
@@ -204,6 +271,56 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/tournaments/gender/{gender}": {
+            "get": {
+                "tags": [
+                    "Tournaments"
+                ],
+                "summary": "Get all tournaments",
+                "operationId": "63e7649d1732264310bbfee5dfb09faf",
+                "parameters": [
+                    {
+                        "name": "gender",
+                        "in": "path",
+                        "description": "Gender of the tournament",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/tournaments/date/{date}": {
+            "get": {
+                "tags": [
+                    "Tournaments"
+                ],
+                "summary": "Get all tournaments",
+                "operationId": "731244002a2d0034bb12d2531f99418a",
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "description": "Date of the tournament",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
                         }
                     }
                 ],

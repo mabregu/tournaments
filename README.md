@@ -7,6 +7,7 @@
 3. Ejecutar el comando `php artisan migrate:fresh --seed` para crear la base de datos y poblarla con datos de prueba
 4. Ejecutar el comando `php artisan serve` para levantar el servidor
 5. Rutas disponibles:
+    - ruta para ver la documentación de la API: `http://localhost:8000/api/documentation`
     - `http://localhost:8000/api/players` para ver todos los jugadores
     - `http://localhost:8000/api/players/{id}` para ver un jugador en particular
     - `http://localhost:8000/api/tournaments` para ver todos los torneos
